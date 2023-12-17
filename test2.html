@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tile Coordinates</title>
+  <!-- Include Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    /* Set the map container size */
+    #map {
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Create a map container -->
+  <div id="map"></div>
+
+  <!-- Include Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <script>
+    // Set the initial map center and zoom level
+    const map = L.map('map').setView([40.7128, -74.0060], 12);
+
+    // Create a TileLayer with the OpenStreetMap URL template
+    const tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    });
+
+    // Add the TileLayer to the map
+    tileLayer.addTo(map);
+
+    // Event listener for when the map is moved
+    map.on('moveend', function() {
+      // Get the geographical bounds of the current map view
+      const bounds = map.getBounds();
+
+      // Get the tile coordinates of the top-left and bottom-right corners of the bounds
+      const topLeft = map.project(bounds.getNorthWest(), map.getZoom());
+      const bottomRight = map.project(bounds.getSouthEast(), map.getZoom());
+
+      // Calculate the column and row indices of the tiles
+      const tileSize = 256; // Standard tile size
+      const topLeftTile = {
+        x: Math.floor(topLeft.x / tileSize),
+        y: Math.floor(topLeft.y / tileSize)
+      };
+      const bottomRightTile = {
+        x: Math.floor(bottomRight.x / tileSize),
+        y: Math.floor(bottomRight.y / tileSize)
+      };
+
+      // Log the results
+      console.log('Top-Left Tile:', topLeftTile);
+      console.log('Bottom-Right Tile:', bottomRightTile);
+    });
+  </script>
+
+</body>
+</html>

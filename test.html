@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenStreetMap Tile Server Check</title>
+  <!-- Include Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    /* Set the map container size */
+    #map {
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Create a map container -->
+  <div id="map"></div>
+
+  <!-- Include Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <script>
+    // Set the initial map center and zoom level
+    const map = L.map('map').setView([40.7128, -74.0060], 12);
+
+    // Create a TileLayer with the OpenStreetMap URL template
+    const tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    });
+
+    // Add the TileLayer to the map
+    tileLayer.addTo(map);
+  </script>
+
+</body>
+</html>

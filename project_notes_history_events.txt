@@ -1,0 +1,26 @@
+PROBLEMS FACED
+
+THINGS LEARNED
+* Next.js
+ - Can be considered an opiniated way of making web projects
+ - has several functionalities like 
+	- in built routing
+	- server side rendering, which itself has many benefits like
+		- security as pages are loaded in server side and then sent to client
+		- faster renderes
+ - backend features - provide and api layer built on top of express.js
+ - image rendering and optimization (nextjs team works closely with google)
+
+* Next.js folder structure
+	
+	
+
+
+IMPROVEMNTS and ADDITIONAL FEATURES
+- sort by time
+- sort by region
+- search the event
+- add accounts
+- add admin account that can add and edit events events
+- add submission for an event
+- add comment/discussion section for each event
