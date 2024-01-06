@@ -1,0 +1,2 @@
+About the project
+This web application is basically a catalog of the many important historical events and categorises them on the basis of geographical locations which are marked on the world map. So you can clicko the marker events and get know about what event that happend there

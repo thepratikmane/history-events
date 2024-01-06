@@ -54,7 +54,7 @@ function MapsApp() {
   //   setActiveHistoricalEvent(event);
   // };
 
-  const [selectedCategory, setSelectedCategory] = useState<String | null>(null)
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
 
 
   // const mapRef = useRef<any>(null);
